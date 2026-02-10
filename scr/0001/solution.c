@@ -84,7 +84,7 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
         if (it != NULL) {
             // 找到补数，说明当前元素和补数的和等于target
             // 分配返回数组的内存
-            int* ret = malloc(sizeof(int) * 2);
+            int* ret = malloc(sizeof(int) * 2);  //就是创建了一个整数数组
             if (ret == NULL) {
                 *returnSize = 0;
                 return NULL;
