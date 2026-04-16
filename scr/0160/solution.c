@@ -13,3 +13,56 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
     }
     return a;
 }
+
+// struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB){
+
+//     if (headA == NULL || headB == NULL)
+//         return NULL;
+
+//     struct ListNode *a = headA;
+//     struct ListNode *b = headB;
+
+//     while (a != b) {
+//         if(a)
+//             a = a->next;
+//         else
+//             a = headB;
+//         if(b)
+//             b = b->next;
+//         else
+//             b = headA;
+//     }
+
+//     return a;  // a和b相等时，返回交点；如果没有交点，最终会同时为NULL
+// }
+
+int main() {
+    // 创建测试链表
+    struct ListNode *headA = (struct ListNode *)malloc(sizeof(struct ListNode));
+    struct ListNode *headB = (struct ListNode *)malloc(sizeof(struct ListNode));
+    struct ListNode *intersection = (struct ListNode *)malloc(sizeof(struct ListNode));
+
+    headA->val = 1;
+    headA->next = intersection;
+
+    headB->val = 2;
+    headB->next = intersection;
+
+    intersection->val = 3;
+    intersection->next = NULL;
+
+    // 测试函数
+    struct ListNode *result = getIntersectionNode(headA, headB);
+    if (result != NULL) {
+        printf("Intersection at node with value: %d\n", result->val);
+    } else {
+        printf("No intersection.\n");
+    }
+
+    // 释放内存
+    free(headA);
+    free(headB);
+    free(intersection);
+
+    return 0;
+}
